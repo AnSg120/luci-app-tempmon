@@ -1,0 +1,11 @@
+#!/bin/sh
+# Stub `uci` for tests: only answers "get tempmon.core.<key>" queries.
+# Values come from environment variables (set by test-collect.sh).
+
+case "$3" in
+	tempmon.core.data_dir)  echo "${TEST_DATA_DIR:-/tmp/tempmon}" ;;
+	tempmon.core.interval)  echo "${TEST_INTERVAL:-60}" ;;
+	tempmon.core.enabled)   echo "${TEST_ENABLED:-1}" ;;
+	tempmon.core.max_lines) echo "${TEST_MAXLINES:-30000}" ;;
+	*) exit 1 ;;
+esac

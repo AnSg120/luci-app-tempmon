@@ -1,0 +1,119 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+msgid "系统监控 - 设置"
+msgstr ""
+
+msgid "配置采样与记录参数。保存并应用后会自动重启采集服务。"
+msgstr ""
+
+msgid "采集设置"
+msgstr ""
+
+msgid "启用记录"
+msgstr ""
+
+msgid "关闭后采集进程将停止采样，历史数据保留。"
+msgstr ""
+
+msgid "自定义隐藏项"
+msgstr ""
+
+msgid "勾选的卡片将在概览页隐藏，未勾选则显示。"
+msgstr ""
+
+msgid "温度卡"
+msgstr ""
+
+msgid "CPU 卡"
+msgstr ""
+
+msgid "内存卡"
+msgstr ""
+
+msgid "存储卡"
+msgstr ""
+
+msgid "网络流量卡"
+msgstr ""
+
+msgid "运行时间卡"
+msgstr ""
+
+msgid "采样间隔（秒）"
+msgstr ""
+
+msgid "每次采样的间隔时间。默认 60 秒，最小 5 秒。"
+msgstr ""
+
+msgid "采样间隔必须是不小于 5 的正整数"
+msgstr ""
+
+msgid "数据目录"
+msgstr ""
+
+msgid "默认 /tmp/tempmon 存于内存（重启后清空，不伤 Flash）。"
+msgstr ""
+
+msgid "若改为 Flash 上的目录（如 /etc/tempmon），数据可跨重启保留，但请注意 Flash 写入寿命。"
+msgstr ""
+
+msgid "数据目录必须是绝对路径"
+msgstr ""
+
+msgid "数据目录不能包含父目录引用 '..'"
+msgstr ""
+
+msgid "最多保留记录条数"
+msgstr ""
+
+msgid "超过该条数时自动轮转，仅保留最新的一半。默认 30000 条（60 秒间隔约 20 天）。"
+msgstr ""
+
+msgid "最多保留记录条数不能小于 1000"
+msgstr ""
+
+msgid "温度告警阈值（°C）"
+msgstr ""
+
+msgid "最高温度达到该值时顶栏显示「温度偏高」并写 syslog。默认 75。"
+msgstr ""
+
+msgid "温度严重阈值（°C）"
+msgstr ""
+
+msgid "最高温度达到该值时顶栏显示「温度告警」并写 syslog。默认 85。"
+msgstr ""
+
+msgid "温度告警阈值必须小于温度严重阈值"
+msgstr ""
+
+msgid "系统监控"
+msgstr ""
+
+msgid "概览"
+msgstr ""
+
+msgid "CPU"
+msgstr ""
+
+msgid "内存"
+msgstr ""
+
+msgid "存储"
+msgstr ""
+
+msgid "网络"
+msgstr ""
+
+msgid "进程"
+msgstr ""
+
+msgid "日志"
+msgstr ""
+
+msgid "设置"
+msgstr ""
+
+msgid "参数"
+msgstr ""

@@ -1,0 +1,119 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+msgid "系统监控 - 设置"
+msgstr "系统监控 - 设置"
+
+msgid "配置采样与记录参数。保存并应用后会自动重启采集服务。"
+msgstr "配置采样与记录参数。保存并应用后会自动重启采集服务。"
+
+msgid "采集设置"
+msgstr "采集设置"
+
+msgid "启用记录"
+msgstr "启用记录"
+
+msgid "关闭后采集进程将停止采样，历史数据保留。"
+msgstr "关闭后采集进程将停止采样，历史数据保留。"
+
+msgid "自定义隐藏项"
+msgstr "自定义隐藏项"
+
+msgid "勾选的卡片将在概览页隐藏，未勾选则显示。"
+msgstr "勾选的卡片将在概览页隐藏，未勾选则显示。"
+
+msgid "温度卡"
+msgstr "温度卡"
+
+msgid "CPU 卡"
+msgstr "CPU 卡"
+
+msgid "内存卡"
+msgstr "内存卡"
+
+msgid "存储卡"
+msgstr "存储卡"
+
+msgid "网络流量卡"
+msgstr "网络流量卡"
+
+msgid "运行时间卡"
+msgstr "运行时间卡"
+
+msgid "采样间隔（秒）"
+msgstr "采样间隔（秒）"
+
+msgid "每次采样的间隔时间。默认 60 秒，最小 5 秒。"
+msgstr "每次采样的间隔时间。默认 60 秒，最小 5 秒。"
+
+msgid "采样间隔必须是不小于 5 的正整数"
+msgstr "采样间隔必须是不小于 5 的正整数"
+
+msgid "数据目录"
+msgstr "数据目录"
+
+msgid "默认 /tmp/tempmon 存于内存（重启后清空，不伤 Flash）。"
+msgstr "默认 /tmp/tempmon 存于内存（重启后清空，不伤 Flash）。"
+
+msgid "若改为 Flash 上的目录（如 /etc/tempmon），数据可跨重启保留，但请注意 Flash 写入寿命。"
+msgstr "若改为 Flash 上的目录（如 /etc/tempmon），数据可跨重启保留，但请注意 Flash 写入寿命。"
+
+msgid "数据目录必须是绝对路径"
+msgstr "数据目录必须是绝对路径"
+
+msgid "数据目录不能包含父目录引用 '..'"
+msgstr "数据目录不能包含父目录引用 '..'"
+
+msgid "最多保留记录条数"
+msgstr "最多保留记录条数"
+
+msgid "超过该条数时自动轮转，仅保留最新的一半。默认 30000 条（60 秒间隔约 20 天）。"
+msgstr "超过该条数时自动轮转，仅保留最新的一半。默认 30000 条（60 秒间隔约 20 天）。"
+
+msgid "最多保留记录条数不能小于 1000"
+msgstr "最多保留记录条数不能小于 1000"
+
+msgid "温度告警阈值（°C）"
+msgstr "温度告警阈值（°C）"
+
+msgid "最高温度达到该值时顶栏显示「温度偏高」并写 syslog。默认 75。"
+msgstr "最高温度达到该值时顶栏显示「温度偏高」并写 syslog。默认 75。"
+
+msgid "温度严重阈值（°C）"
+msgstr "温度严重阈值（°C）"
+
+msgid "最高温度达到该值时顶栏显示「温度告警」并写 syslog。默认 85。"
+msgstr "最高温度达到该值时顶栏显示「温度告警」并写 syslog。默认 85。"
+
+msgid "温度告警阈值必须小于温度严重阈值"
+msgstr "温度告警阈值必须小于温度严重阈值"
+
+msgid "系统监控"
+msgstr "系统监控"
+
+msgid "概览"
+msgstr "概览"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "内存"
+msgstr "内存"
+
+msgid "存储"
+msgstr "存储"
+
+msgid "网络"
+msgstr "网络"
+
+msgid "进程"
+msgstr "进程"
+
+msgid "日志"
+msgstr "日志"
+
+msgid "设置"
+msgstr "设置"
+
+msgid "参数"
+msgstr "参数"

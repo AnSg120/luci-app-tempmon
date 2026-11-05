@@ -1,0 +1,80 @@
+<%+header%>
+<link rel="stylesheet" href="/luci-static/resources/tempmon/theme.css?v=1.0.0">
+<link rel="stylesheet" href="/luci-static/resources/tempmon/app.css?v=1.0.0">
+
+<div id="tm-app"></div>
+
+<script type="text/javascript">
+<%
+-- CSRF nonce bootstrap
+local np = "/tmp/tempmon.nonce"
+local function hex(b)
+	return (b:gsub(".", function(c) return string.format("%02x", string.byte(c)) end))
+end
+local function fresh()
+	local f = io.open("/dev/urandom", "rb")
+	local b = f and f:read(16) or ""
+	if f then f:close() end
+	if b == "" then b = tostring(math.random(0, 99999999999)) end
+	local n = hex(b)
+	local o = io.open(np, "w")
+	if o then o:write(n .. "\n" .. os.time() .. "\n"); o:close() end
+	return n
+end
+local nonce = nil
+local f = io.open(np, "r")
+if f then
+	nonce = (f:read("*l") or ""):match("%x+")
+	local epoch = (f:read("*l") or ""):match("%d+") or "0"
+	f:close()
+	if not nonce or string.len(nonce) ~= 32 or (os.time() - (tonumber(epoch) or 0) > 3600) then
+		nonce = fresh()
+	end
+end
+if not nonce then nonce = fresh() end
+
+-- Get package version
+local function package_version()
+	local fv = io.open("/usr/lib/opkg/status", "r")
+	if not fv then return "1.0.0" end
+	local inp = false
+	for line in fv:lines() do
+		if line:sub(1, 9) == "Package: " then
+			inp = (line:sub(10) == "luci-app-tempmon")
+		elseif inp and line:sub(1, 9) == "Version: " then
+			local ver = line:sub(10)
+			fv:close()
+			return ver
+		end
+	end
+	fv:close()
+	return "1.0.0"
+end
+%>
+window.TM_TOKEN = '<%=nonce%>';
+window.TM_VERSION = '<%=package_version()%>';
+window.TM_API = {
+	base:    '<%=luci.dispatcher.build_url("admin/tempmon")%>',
+	status:  '<%=luci.dispatcher.build_url("admin/tempmon/api_status")%>',
+	data:    '<%=luci.dispatcher.build_url("admin/tempmon/api_data")%>',
+	io:      '<%=luci.dispatcher.build_url("admin/tempmon/api_io")%>',
+	sys:     '<%=luci.dispatcher.build_url("admin/tempmon/api_sys")%>',
+	mem:     '<%=luci.dispatcher.build_url("admin/tempmon/api_mem")%>',
+	net:     '<%=luci.dispatcher.build_url("admin/tempmon/api_net")%>',
+	procs:   '<%=luci.dispatcher.build_url("admin/tempmon/api_procs")%>',
+	logs:    '<%=luci.dispatcher.build_url("admin/tempmon/api_logs")%>',
+	svc:     '<%=luci.dispatcher.build_url("admin/tempmon/api_service")%>',
+	display: '<%=luci.dispatcher.build_url("admin/tempmon/api_display")%>',
+	export:  '<%=luci.dispatcher.build_url("admin/tempmon/api_export")%>',
+	clear:   '<%=luci.dispatcher.build_url("admin/tempmon/api_clear")%>',
+	clearLogs: '<%=luci.dispatcher.build_url("admin/tempmon/api_logs_clear")%>',
+	config:  '<%=luci.dispatcher.build_url("admin/tempmon/config")%>'
+};
+</script>
+<!-- chart.js 仍是经典脚本（IIFE 挂 window.tempmonChart），必须先于模块执行 -->
+<script src="/luci-static/resources/tempmon/chart.js?v=1.0.0"></script>
+<!-- app.js 是原生 ES Module 入口，模块图由浏览器自行按 import 加载（无打包）。
+     module 默认 defer，所以上方内联脚本注入的 window.TM_TOKEN / TM_API
+     以及 chart.js 在此时都已就绪 -->
+<script type="module" src="/luci-static/resources/tempmon/app.js?v=1.0.0"></script>
+<%+footer%>

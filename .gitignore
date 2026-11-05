@@ -1,0 +1,17 @@
+# build artifacts — only the current release ipk + checksum is tracked
+release/*
+!release/luci-app-tempmon_1.0.0-1_all.ipk
+!release/luci-app-tempmon_1.0.0-1_all.ipk.sha256
+__pycache__/
+*.pyc
+
+# internal review reports (not for publishing)
+_review/
+
+# editor / os noise
+.DS_Store
+Thumbs.db
+*.swp
+
+# local scratch
+/tmp-on-router/

@@ -1,0 +1,8 @@
+config core 'core'
+	option enabled '1'
+	option interval '60'
+	option data_dir '/tmp/tempmon'
+	option max_lines '30000'
+	option hide_items ''
+	option temp_warn '75'
+	option temp_crit '85'

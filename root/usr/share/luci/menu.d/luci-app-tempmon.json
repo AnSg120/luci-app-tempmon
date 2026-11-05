@@ -1,0 +1,82 @@
+{
+	"admin/tempmon": {
+		"title": "系统监控",
+		"order": 80,
+		"action": {
+			"type": "alias",
+			"path": "admin/tempmon/dashboard"
+		}
+	},
+
+	"admin/tempmon/dashboard": {
+		"order": 10,
+		"action": {
+			"type": "view",
+			"path": "tempmon/dashboard"
+		}
+	},
+
+	"admin/tempmon/cpu": {
+		"order": 20,
+		"action": {
+			"type": "view",
+			"path": "tempmon/dashboard"
+		}
+	},
+
+	"admin/tempmon/memory": {
+		"order": 30,
+		"action": {
+			"type": "view",
+			"path": "tempmon/dashboard"
+		}
+	},
+
+	"admin/tempmon/storage": {
+		"order": 40,
+		"action": {
+			"type": "view",
+			"path": "tempmon/dashboard"
+		}
+	},
+
+	"admin/tempmon/network": {
+		"order": 50,
+		"action": {
+			"type": "view",
+			"path": "tempmon/dashboard"
+		}
+	},
+
+	"admin/tempmon/procs": {
+		"order": 60,
+		"action": {
+			"type": "view",
+			"path": "tempmon/dashboard"
+		}
+	},
+
+	"admin/tempmon/logs": {
+		"order": 70,
+		"action": {
+			"type": "view",
+			"path": "tempmon/dashboard"
+		}
+	},
+
+	"admin/tempmon/settings": {
+		"order": 80,
+		"action": {
+			"type": "view",
+			"path": "tempmon/dashboard"
+		}
+	},
+
+	"admin/tempmon/config": {
+		"order": 90,
+		"action": {
+			"type": "view",
+			"path": "cbi/tempmon"
+		}
+	}
+}

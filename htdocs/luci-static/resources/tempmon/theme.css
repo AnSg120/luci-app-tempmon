@@ -1,0 +1,333 @@
+/* ==========================================================================
+ * luci-app-tempmon — theme tokens (v1.0.0 完整主题变量体系)
+ *
+ * 设计原则：
+ *   - 深海军蓝背景 (#0a0e1a / #0d1225)
+ *   - 卡片使用稍亮的深蓝灰 (#131836 / #1a2040)
+ *   - 强调色：蓝色(#3b82f6)、青绿(#06b6d4)、紫色(#8b5cf6)、橙色(#f59e0b)
+ *   - 避免大面积渐变和过强发光
+ *   - 简洁、克制、专业
+ *   - 新增：告警状态色、动画时长、间距层级、阴影深度
+ * ========================================================================== */
+
+/* ---- 深色主题（主视觉）---- */
+#tm-app {
+	/* ========== 基础背景 ========== */
+	--tm-bg-app:      #0a0e1a;
+	--tm-bg-sidebar:  #0d1225;
+	--tm-bg-header:   #0d1225;
+	--tm-bg-panel:    #131836;
+	--tm-bg-panel-hover: #1a2040;
+	--tm-bg-card:     #131836;
+	--tm-bg-input:    #0d1225;
+	--tm-bg-modal-overlay: rgba(0, 0, 0, 0.6);
+	
+	/* ========== 边框 ========== */
+	--tm-border:      #1e2746;
+	--tm-border-soft: #161d35;
+	--tm-border-light:#252d4a;
+	--tm-border-focus: var(--tm-accent);
+	
+	/* ========== 文字 ========== */
+	--tm-text-1:      #e2e8f5;
+	--tm-text-2:      #94a3c4;
+	--tm-text-3:      #5a6480;
+	--tm-text-muted:  #3d4560;
+	--tm-text-inverse:#ffffff;
+	
+	/* ========== 强调色 ========== */
+	--tm-accent:      #3b82f6;
+	--tm-accent-hover:#2563eb;
+	--tm-accent-active:#1d4ed8;
+	--tm-accent-soft: rgba(59, 130, 246, 0.12);
+	--tm-accent-glow: rgba(59, 130, 246, 0.25);
+	
+	/* ========== 语义色 - 正常/成功 ========== */
+	--tm-ok:          #10b981;
+	--tm-ok-hover:    #059669;
+	--tm-ok-soft:     rgba(16, 185, 129, 0.12);
+	--tm-ok-border:   rgba(16, 185, 129, 0.3);
+	
+	/* ========== 语义色 - 警告 ========== */
+	--tm-warn:        #f59e0b;
+	--tm-warn-hover:  #d97706;
+	--tm-warn-soft:   rgba(245, 158, 11, 0.12);
+	--tm-warn-border: rgba(245, 158, 11, 0.3);
+	
+	/* ========== 语义色 - 错误/危险 ========== */
+	--tm-err:         #ef4444;
+	--tm-err-hover:   #dc2626;
+	--tm-err-soft:    rgba(239, 68, 68, 0.12);
+	--tm-err-border:  rgba(239, 68, 68, 0.3);
+	
+	/* ========== 语义色 - 信息 ========== */
+	--tm-info:        #06b6d4;
+	--tm-info-hover:  #0891b2;
+	--tm-info-soft:   rgba(6, 182, 212, 0.12);
+	--tm-info-border: rgba(6, 182, 212, 0.3);
+	
+	/* ========== 数据可视化色板 ========== */
+	--tm-c-blue:      #3b82f6;
+	--tm-c-cyan:      #06b6d4;
+	--tm-c-purple:    #8b5cf6;
+	--tm-c-orange:    #f59e0b;
+	--tm-c-green:     #10b981;
+	--tm-c-red:       #ef4444;
+	--tm-c-pink:      #ec4899;
+	--tm-c-indigo:    #6366f1;
+	--tm-c-yellow:    #eab308;
+	--tm-c-teal:      #14b8a6;
+	
+	/* ========== 图表 ========== */
+	--tm-grid:        #161d35;
+	--tm-grid-v:      #1a2240;
+	--tm-axis:        #4a5470;
+	--tm-axis-line:   #252d4a;
+	--tm-crosshair:   rgba(148, 163, 196, 0.3);
+	--tm-tooltip-bg:  var(--tm-bg-panel);
+	--tm-tooltip-border: var(--tm-border-light);
+	
+	/* ========== 阴影与效果 ========== */
+	--tm-shadow-xs:   0 1px 3px rgba(0, 0, 0, 0.2);
+	--tm-shadow-sm:   0 2px 8px rgba(0, 0, 0, 0.3);
+	--tm-shadow-md:   0 4px 16px rgba(0, 0, 0, 0.4);
+	--tm-shadow-lg:   0 8px 32px rgba(0, 0, 0, 0.5);
+	--tm-shadow-xl:   0 12px 48px rgba(0, 0, 0, 0.6);
+	--tm-card-sheen:  linear-gradient(180deg, rgba(255,255,255,0.03), transparent 40%);
+	
+	/* ========== 滚动条 ========== */
+	--tm-scroll:      #252d4a;
+	--tm-scroll-hover:#353d5a;
+	--tm-scroll-thumb:#3d4560;
+	
+	/* ========== 圆角 ========== */
+	--tm-radius-xs:   4px;
+	--tm-radius-sm:   6px;
+	--tm-radius-md:   8px;
+	--tm-radius-lg:   12px;
+	--tm-radius-xl:   16px;
+	--tm-radius-2xl:  24px;
+	--tm-radius-full: 9999px;
+	
+	/* ========== 间距 ========== */
+	--tm-space-2xs:   2px;
+	--tm-space-xs:    4px;
+	--tm-space-sm:    8px;
+	--tm-space-md:    12px;
+	--tm-space-lg:    16px;
+	--tm-space-xl:    24px;
+	--tm-space-2xl:   32px;
+	--tm-space-3xl:   48px;
+	--tm-space-4xl:   64px;
+	
+	/* ========== 字体 ========== */
+	--tm-font:        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--tm-font-mono:   ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+	--tm-font-size-xs: 11px;
+	--tm-font-size-sm: 12px;
+	--tm-font-size-md: 14px;
+	--tm-font-size-lg: 16px;
+	--tm-font-size-xl: 20px;
+	--tm-font-size-2xl: 24px;
+	--tm-font-size-3xl: 32px;
+	--tm-line-height: 1.5;
+	--tm-line-height-tight: 1.2;
+	--tm-line-height-loose: 1.8;
+	
+	/* ========== 尺寸 ========== */
+	--tm-sidebar-w:   220px;
+	--tm-sidebar-w-collapsed: 64px;
+	--tm-header-h:    56px;
+	--tm-icon-sm:     16px;
+	--tm-icon-md:     24px;
+	--tm-icon-lg:     32px;
+	--tm-icon-xl:     48px;
+	
+	/* ========== 动画时长 ========== */
+	--tm-transition-fast: 150ms;
+	--tm-transition-base: 200ms;
+	--tm-transition-slow: 300ms;
+	--tm-transition-slower: 500ms;
+	
+	/* ========== 动画缓动 ========== */
+	--tm-ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+	--tm-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+	--tm-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+	
+	/* ========== Z-index 层级 ========== */
+	--tm-z-dropdown:  100;
+	--tm-z-sticky:    200;
+	--tm-z-modal:     300;
+	--tm-z-tooltip:   400;
+	--tm-z-toast:     500;
+	
+	color-scheme: dark;
+}
+
+/* ---- 浅色主题（兼容保留）---- */
+#tm-app[data-tm-mode="light"] {
+	--tm-bg-app:      #f0f2f7;
+	--tm-bg-sidebar:  #ffffff;
+	--tm-bg-header:   #ffffff;
+	--tm-bg-panel:    #ffffff;
+	--tm-bg-panel-hover: #f5f7fb;
+	--tm-bg-card:     #ffffff;
+	--tm-bg-input:    #f5f7fb;
+	--tm-bg-modal-overlay: rgba(0, 0, 0, 0.4);
+	
+	--tm-border:      #dde1ea;
+	--tm-border-soft: #e8ebf2;
+	--tm-border-light:#d0d4de;
+	--tm-border-focus: var(--tm-accent);
+	
+	--tm-text-1:      #1a2030;
+	--tm-text-2:      #4a5468;
+	--tm-text-3:      #7a8498;
+	--tm-text-muted:  #a0a8b8;
+	--tm-text-inverse:#ffffff;
+	
+	--tm-accent:      #2563eb;
+	--tm-accent-hover:#1d4ed8;
+	--tm-accent-active:#1e40af;
+	--tm-accent-soft: rgba(37, 99, 235, 0.10);
+	--tm-accent-glow: rgba(37, 99, 235, 0.20);
+	
+	--tm-ok:          #059669;
+	--tm-ok-hover:    #047857;
+	--tm-ok-soft:     rgba(5, 150, 105, 0.10);
+	--tm-ok-border:   rgba(5, 150, 105, 0.3);
+	
+	--tm-warn:        #d97706;
+	--tm-warn-hover:  #b45309;
+	--tm-warn-soft:   rgba(217, 119, 6, 0.10);
+	--tm-warn-border: rgba(217, 119, 6, 0.3);
+	
+	--tm-err:         #dc2626;
+	--tm-err-hover:   #b91c1c;
+	--tm-err-soft:    rgba(220, 38, 38, 0.10);
+	--tm-err-border:  rgba(220, 38, 38, 0.3);
+	
+	--tm-info:        #0891b2;
+	--tm-info-hover:  #0e7490;
+	--tm-info-soft:   rgba(8, 145, 178, 0.10);
+	--tm-info-border: rgba(8, 145, 178, 0.3);
+	
+	--tm-c-blue:      #2563eb;
+	--tm-c-cyan:      #0891b2;
+	--tm-c-purple:    #7c3aed;
+	--tm-c-orange:    #d97706;
+	--tm-c-green:     #059669;
+	--tm-c-red:       #dc2626;
+	--tm-c-pink:      #db2777;
+	--tm-c-indigo:    #4f46e5;
+	--tm-c-yellow:    #ca8a04;
+	--tm-c-teal:      #0d9488;
+	
+	--tm-grid:        #e8ebf2;
+	--tm-grid-v:      #dde1ea;
+	--tm-axis:        #7a8498;
+	--tm-axis-line:   #dde1ea;
+	--tm-crosshair:   rgba(74, 84, 104, 0.3);
+	
+	--tm-shadow-xs:   0 1px 2px rgba(0, 0, 0, 0.04);
+	--tm-shadow-sm:   0 1px 4px rgba(0, 0, 0, 0.06);
+	--tm-shadow-md:   0 2px 8px rgba(0, 0, 0, 0.08);
+	--tm-shadow-lg:   0 4px 16px rgba(0, 0, 0, 0.10);
+	--tm-shadow-xl:   0 8px 32px rgba(0, 0, 0, 0.12);
+	--tm-card-sheen:  linear-gradient(180deg, rgba(255,255,255,0.8), transparent 40%);
+	
+	--tm-scroll:      #c8cdd8;
+	--tm-scroll-hover:#a8b0c0;
+	--tm-scroll-thumb:#9ca3af;
+	
+	color-scheme: light;
+}
+
+/* ========== 卡片状态变体 ========== */
+
+/* 正常状态卡片 */
+.tm-card-state-normal {
+	border-color: var(--tm-border);
+	background: var(--tm-bg-card);
+	box-shadow: var(--tm-shadow-sm);
+}
+
+/* 警告状态卡片 */
+.tm-card-state-warning {
+	border-color: var(--tm-warn-border);
+	background: linear-gradient(135deg, var(--tm-bg-card) 0%, rgba(245, 158, 11, 0.05) 100%);
+	box-shadow: 0 0 0 1px var(--tm-warn-border), var(--tm-shadow-md);
+}
+
+/* 危险/严重状态卡片 */
+.tm-card-state-danger {
+	border-color: var(--tm-err-border);
+	background: linear-gradient(135deg, var(--tm-bg-card) 0%, rgba(239, 68, 68, 0.05) 100%);
+	box-shadow: 0 0 0 1px var(--tm-err-border), var(--tm-shadow-md);
+	animation: tm-pulse-danger 2s ease-in-out infinite;
+}
+
+@keyframes tm-pulse-danger {
+	0%, 100% { box-shadow: 0 0 0 1px var(--tm-err-border), var(--tm-shadow-md); }
+	50% { box-shadow: 0 0 0 2px var(--tm-err-border), var(--tm-shadow-lg); }
+}
+
+/* ========== 全局重置与应用级样式 ========== */
+#tm-app {
+	font-family: var(--tm-font);
+	font-size: var(--tm-font-size-md);
+	line-height: var(--tm-line-height);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#tm-app * {
+	box-sizing: border-box;
+}
+
+#tm-app ::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+#tm-app ::-webkit-scrollbar-track {
+	background: var(--tm-bg-input);
+}
+
+#tm-app ::-webkit-scrollbar-thumb {
+	background: var(--tm-scroll-thumb);
+	border-radius: var(--tm-radius-sm);
+	transition: background var(--tm-transition-fast) ease;
+}
+
+#tm-app ::-webkit-scrollbar-thumb:hover {
+	background: var(--tm-scroll-hover);
+}
+
+/* ========== 过渡动画工具类 ========== */
+.tm-transition-all {
+	transition: all var(--tm-transition-base) var(--tm-ease-out);
+}
+
+.tm-transition-colors {
+	transition: color var(--tm-transition-fast) ease,
+	            background-color var(--tm-transition-fast) ease,
+	            border-color var(--tm-transition-fast) ease,
+	            box-shadow var(--tm-transition-fast) ease;
+}
+
+.tm-transition-transform {
+	transition: transform var(--tm-transition-base) var(--tm-ease-out);
+}
+
+/* ========== 焦点状态 ========== */
+#tm-app :focus-visible {
+	outline: 2px solid var(--tm-accent);
+	outline-offset: 2px;
+}
+
+/* ========== 选择文本 ========== */
+#tm-app ::selection {
+	background: var(--tm-accent-soft);
+	color: var(--tm-text-1);
+}

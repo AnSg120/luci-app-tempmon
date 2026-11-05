@@ -1,0 +1,11 @@
+{
+	"luci-app-tempmon": {
+		"description": "Grant access to the temperature & CPU monitor pages",
+		"read": {
+			"uci": [ "tempmon" ]
+		},
+		"write": {
+			"uci": [ "tempmon" ]
+		}
+	}
+}
